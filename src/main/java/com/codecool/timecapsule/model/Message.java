@@ -21,10 +21,10 @@ public class Message {
     private Long id;
 
     private LocalDate creationDate;
-    @Lob
+
     private String message;
 
     private int duration;
     
-    private Long userId;
+    private Integer userId;
 }

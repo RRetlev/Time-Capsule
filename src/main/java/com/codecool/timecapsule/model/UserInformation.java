@@ -17,13 +17,12 @@ import javax.validation.constraints.Email;
 @AllArgsConstructor
 public class UserInformation {
     @Id
-    @GeneratedValue
-    private Long ID;
+    private Integer Id;
 
     private String Username;
 
     private Long psw;
 
-    @Email
+
     private String email;
 }
