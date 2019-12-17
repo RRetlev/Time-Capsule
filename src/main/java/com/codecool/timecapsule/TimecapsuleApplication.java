@@ -9,10 +9,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.time.LocalDate;
 
 @SpringBootApplication
+@EnableScheduling
 public class TimecapsuleApplication {
 
     @Autowired
@@ -20,6 +22,7 @@ public class TimecapsuleApplication {
 
     @Autowired
     private UserRepository userRepository;
+
     public static void main(String[] args) {
         SpringApplication.run(TimecapsuleApplication.class, args);
     }
@@ -29,22 +32,21 @@ public class TimecapsuleApplication {
             UserInformation user1 = UserInformation.builder()
                     .email("whatever@whatever.com")
                     .psw(68464l)
-                    .Username("Dumbó")
-                    .Id(1)
+                    .username("Dumbó")
+                    .id(1)
                     .build();
             UserInformation user2 = UserInformation.builder()
                     .email("whoknows@whoknows.com")
                     .psw(44444l)
-                    .Username("Marvin")
-                    .Id(2)
+                    .username("Marvin")
+                    .id(2)
                     .build();
 
 
             Message message = Message.builder()
                     .message("faszom")
-                    .duration(20000)
                     .creationDate(LocalDate.now())
-                    .userId(user1.getId())
+                    .email(user2.getEmail())
                     .build();
 
             userRepository.save(user1);

@@ -24,7 +24,7 @@ public class Message {
 
     private String message;
 
-    private int duration;
+    private LocalDate endingDate;
     
-    private Integer userId;
+    private String email;
 }

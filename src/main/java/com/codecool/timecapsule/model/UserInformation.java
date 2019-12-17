@@ -1,5 +1,6 @@
 package com.codecool.timecapsule.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,12 +18,12 @@ import javax.validation.constraints.Email;
 @AllArgsConstructor
 public class UserInformation {
     @Id
-    private Integer Id;
+    @JsonIgnore
+    private Integer id;
 
-    private String Username;
-
+    private String username;
+    @JsonIgnore
     private Long psw;
-
 
     private String email;
 }
