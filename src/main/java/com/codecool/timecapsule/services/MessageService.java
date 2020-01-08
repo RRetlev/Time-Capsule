@@ -21,4 +21,8 @@ public class MessageService {
         message.setCreationDate(LocalDate.now());
         return messageRepository.save(message);
     }
+
+//    public List<Message> getMessagesNeedToBeSent(){
+//        return messageRepository.getExpiredCapsules();
+//    }
 }

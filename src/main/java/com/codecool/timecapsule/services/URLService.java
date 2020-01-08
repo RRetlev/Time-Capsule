@@ -14,14 +14,12 @@ public class URLService {
     @Autowired
     private URLRepository urlRepository;
 
-    private String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toLowerCase();
-
-    private Random random = new Random();
-
-    public void useURL(String inviteId) throws UrlNotExistsException {
+    public String useURL(UUID inviteId) throws UrlNotExistsException {
         Optional<OneuseURL> url = urlRepository.getOneuseURLByURL(inviteId);
-        url.orElseThrow(() -> new UrlNotExistsException(inviteId));
-        urlRepository.delete(url.get());
+        url.orElseThrow(() -> new UrlNotExistsException(inviteId.toString()));
+        System.out.println("UUID found");
+        //urlRepository.delete(url.get());
+        return url.get().getEmail();
     }
 
     public List<OneuseURL> createURLs(List<String> emails) {

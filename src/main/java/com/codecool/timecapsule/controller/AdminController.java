@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.constraints.Email;
 import java.util.List;
 
 @RestController
@@ -18,12 +17,9 @@ import java.util.List;
 public class AdminController {
     @Autowired
     private UserService userService ;
-//    @Autowired
-//    private EmailService emailService;
 
     @GetMapping("/all")
     public List<UserInformation> getAllUsers(){
-        //emailService.sendEmail();
         return userService.findAllUsers();
         //TODO tests
     }
